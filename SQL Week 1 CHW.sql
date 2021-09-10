@@ -1,0 +1,15 @@
+/*#1*/select * from employees where birth_date > 1965-01-01 order by emp_no asc limit 20;
+/*#2*/select * from employees where gender = "F" AND hire_date > 1990-12-31 order by emp_no desc limit 20;
+/*#3*/select first_name, last_name from employees where last_name like 'F%' order by first_name limit 20;
+/*#4*/insert into employees values('100','1980-01-01','Bob','dBob','M','1990-01-01');
+/*#4*/insert into employees values('101','1980-01-01','Jim','dBob','M','1991-03-04');
+/*#4*/insert into employees values('102','1980-01-01','Bill','dBob','M','1992-05-06');
+/*#4 Database check*/ select * from employees where emp_no < '105';
+/*#5*/update employees set first_name = 'Bob' where emp_no = '10023';
+/*#5 Database check*/ select * from employees where emp_no = '10023';
+/*#6*/update employees set hire_date = '2002-01-01' where first_name like 'P%' or last_name like 'P%';
+/*#6 Database check*/select * from employees  where first_name like 'P%' or last_name like 'P%' order by emp_no desc limit 20;
+/*#7*/delete from employees where emp_no < 10000;
+/*#7 Database check*/ select * from employees where emp_no < 10000;
+/*#8*/delete from employees where emp_no = '10048' or emp_no = '10099' or emp_no = '10234' or  emp_no = '20089';
+/*#8 Database check*/ select * from employees where emp_no = '10048' or emp_no = '10099' or emp_no = '10234' or  emp_no = '20089';
